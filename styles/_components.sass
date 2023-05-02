@@ -2,13 +2,16 @@
 @import 'tailwindcss/utilities'
 
 @layer components
+
 	.container
 		@apply mx-auto max-w-4xl px-6 sm:px-[clamp(1.5rem,4vw,3rem)]
+	@each $w in ('2xl','3xl','4xl','5xl','6xl','7xl')
+		.container-#{$w}
+			@apply container max-w-#{$w}
+
 	.flex-center
 		@apply items-center justify-center
-	.button
-		@apply flex-center inline-flex
-		@apply px-2 py-1 rounded-md relative
+
 	.link
 		$C: currentcolor
 		outline: none

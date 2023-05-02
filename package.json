@@ -1,6 +1,6 @@
 {
 	"name": "next-template",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
@@ -22,20 +22,9 @@
 		"tailwindcss": "3.3.1",
 		"typescript": "5.0.4"
 	},
-	"prettier": {
-		"printWidth": 80,
-		"singleQuote": true,
-		"jsxSingleQuote": true,
-		"quoteProps": "consistent",
-		"arrowParens": "always",
-		"useTabs": true,
-		"tabWidth": 2,
-		"trailingComma": "all",
-		"semi": false
-	},
 	"postcss": {
 		"plugins": {
-			"tailwindcss": {},
+			"tailwindcss": "styles/tailwind.config.ts",
 			"autoprefixer": {}
 		}
 	}

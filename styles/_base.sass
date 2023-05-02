@@ -7,16 +7,16 @@ html
 
 body
 	-webkit-tap-highlight-color: transparent
-	@apply relative flex flex-col min-h-screen
+
+button, a, input
+	> mark:first-child
+		@apply sr-only text-inherit
 
 hr
 	@apply border-[1px,0,0] border-gray-200 dark:border-gray-800
 
-h1
-	@apply text-3xl
-h2
-	@apply text-2xl
-h3
-	@apply text-xl
-h4
-	@apply text-lg
+h1,h2,h3,h4,h5,h6
+	@apply font-raleway
+@each $tag,$size in (h1:4xl, h2:3xl, h3:2xl, h4:xl)
+	#{$tag}
+		@apply text-#{$size}

@@ -1,13 +1,9 @@
 import colors from 'tailwindcss/colors'
+import { Config } from 'tailwindcss'
 
-/** @type {import('tailwindcss').Config}*/
-module.exports = {
+const tailwind: Config = {
 	darkMode: 'media',
-	content: [
-		'./app/**/*.{ts,tsx,mdx}',
-		'./pages/**/*.{ts,tsx,mdx}',
-		'./components/**/*.{ts,tsx,mdx}',
-	],
+	content: ['./app/**/*.{ts,tsx,mdx}', './components/**/*.{ts,tsx,mdx}'],
 	theme: {
 		extend: {
 			colors: {
@@ -16,7 +12,12 @@ module.exports = {
 				//@ts-ignore removes neutral colors
 				neutral: null,
 			},
+			fontFamily: {
+				raleway: 'var(--font-raleway)',
+			},
 		},
 	},
 	plugins: [],
 }
+
+export default tailwind
