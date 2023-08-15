@@ -1,12 +1,7 @@
-import { defaultSEO } from '@/app/config'
-import { Raleway } from 'next/font/google'
 import { cn } from '@/components/utils'
+import { defaultSEO } from '@/public/config'
+import { raleway } from '@/styles/font'
 import '@/styles/global.sass'
-
-const raleway = Raleway({
-	variable: '--font-raleway',
-	subsets: ['latin'],
-})
 
 export const metadata: Metadata = defaultSEO
 

@@ -1,8 +1,8 @@
 import { forwardRef } from 'react'
 import Anchor, { LinkProps } from 'next/link'
-import { isExternal } from '@/components/utils'
+import { isExternal } from '@/library/utils'
 
-type HTMLProps = Omit<Html<HTMLAnchorElement>, keyof LinkProps>
+type HTMLProps = Omit<HTML<HTMLAnchorElement>, keyof LinkProps>
 type AnchorProps = LinkProps & HTMLProps & { text?: React.ReactNode }
 
 export default forwardRef(function Link(
@@ -15,7 +15,6 @@ export default forwardRef(function Link(
 
 	if (isExternal(href) && !props.target) {
 		attr.target = '_blank'
-		attr.rel = 'noopener noreferrer'
 	}
 
 	return (

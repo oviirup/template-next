@@ -1,5 +1,14 @@
-@import 'base'
-@import 'components'
+@tailwind base
+@tailwind components
+@tailwind utilities
+
+html
+	@apply bg-gray-50 dark:bg-gray-950
+	@apply text-black dark:text-white
+	@apply overflow-x-hidden scroll-smooth
+
+body
+	-webkit-tap-highlight-color: transparent
 
 [data-content-area]
 	@apply flex-1 container py-6 relative

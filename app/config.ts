@@ -5,15 +5,16 @@ export const siteTitle = 'Next Template'
 export const siteStatus = 'BETA'
 
 export const defaultSEO: Metadata = {
+	metadataBase: new URL(siteURL),
 	title: {
-		default: 'Next Template',
-		template: '%s - Next Template',
+		default: siteTitle,
+		template: `%s - ${siteTitle}`,
 	},
 	openGraph: {
 		type: 'website',
 		title: {
-			default: 'Next Template',
-			template: '%s - Next Template',
+			default: siteTitle,
+			template: `%s - ${siteTitle}`,
 		},
 		locale: 'en',
 	},

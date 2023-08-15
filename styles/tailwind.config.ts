@@ -1,23 +1,33 @@
+import type { Config } from 'tailwindcss'
 import colors from 'tailwindcss/colors'
-import { Config } from 'tailwindcss'
+import customPlugin from './tailwind.plugin'
 
-const tailwind: Config = {
+/** Main tailwind config */
+const tailwindConfig: Config = {
 	darkMode: 'media',
-	content: ['./app/**/*.{ts,tsx,mdx}', './components/**/*.{ts,tsx,mdx}'],
+	content: [
+		'./app/**/*.{js,jsx,ts,tsx,mdx}',
+		'./components/**/*.{js,jsx,ts,tsx,mdx}',
+	],
 	theme: {
+		container: {
+			padding: 'clamp(1.5rem,4vw,3rem)',
+			center: true,
+		},
 		extend: {
 			colors: {
-				// asign neutral color to gray
+				// assign neutral color to gray
 				gray: colors.neutral,
 				//@ts-ignore removes neutral colors
 				neutral: null,
 			},
 			fontFamily: {
+				inter: 'var(--font-inter)',
 				raleway: 'var(--font-raleway)',
 			},
 		},
 	},
-	plugins: [],
+	plugins: [customPlugin],
 }
 
-export default tailwind
+export default tailwindConfig
