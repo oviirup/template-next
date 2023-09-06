@@ -1,5 +1,6 @@
 {
-	"extends": ["react-hooks", "next", "prettier"],
+	"extends": ["next", "prettier"],
+	"plugins": ["react-hooks", "tailwindcss"],
 	"rules": {
 		"no-console": 1,
 		"eqeqeq": 1

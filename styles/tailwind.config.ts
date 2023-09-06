@@ -1,6 +1,5 @@
 import type { Config } from 'tailwindcss'
 import colors from 'tailwindcss/colors'
-import customPlugin from './tailwind.plugin'
 
 /** Main tailwind config */
 const tailwindConfig: Config = {
@@ -13,21 +12,27 @@ const tailwindConfig: Config = {
 		container: {
 			padding: 'clamp(1.5rem,4vw,3rem)',
 			center: true,
+			screens: { xl: '80rem' },
 		},
+		// prettier-ignore
+		zIndex: ['auto',0,1,2,3,4,5,10,20,30,40,50].reduce((obj, value) => {
+			obj[value] = String(value)
+			return obj
+		}, {} as Record<string, string>),
 		extend: {
 			colors: {
-				// assign neutral color to gray
+				primary: colors.indigo,
 				gray: colors.neutral,
 				//@ts-ignore removes neutral colors
 				neutral: null,
 			},
 			fontFamily: {
-				inter: 'var(--font-inter)',
-				raleway: 'var(--font-raleway)',
+				raleway: 'var(--font-raleway, Raleway)',
+				inter: 'var(--font-inter, Inter)',
 			},
 		},
 	},
-	plugins: [customPlugin],
+	future: { hoverOnlyWhenSupported: true },
 }
 
 export default tailwindConfig

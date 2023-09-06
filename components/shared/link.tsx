@@ -5,10 +5,7 @@ import { isExternal } from '@/library/utils'
 type HTMLProps = Omit<HTML<HTMLAnchorElement>, keyof LinkProps>
 type AnchorProps = LinkProps & HTMLProps & { text?: React.ReactNode }
 
-export default forwardRef(function Link(
-	props: AnchorProps,
-	refer: React.Ref<HTMLAnchorElement>,
-) {
+const Link = forwardRef<HTMLAnchorElement, AnchorProps>((props, refer) => {
 	const { href, text, ...attr } = props
 	const _href = href.toString()
 	const URLstring = _href?.replace(/https?\:\/+(www.)?/, '')
@@ -23,3 +20,6 @@ export default forwardRef(function Link(
 		</Anchor>
 	)
 })
+Link.displayName = 'Link'
+
+export default Link
