@@ -13,8 +13,7 @@ export function cn(...args: any[]): string {
 			let inner = cn.apply(null, arg)
 			if (inner) names.push(inner)
 		} else if (argType === Object) {
-			let hasClassName = typeof arg.className === 'string'
-			let entries = Object.entries(hasClassName ? arg.className : arg)
+			let entries = Object.entries(arg)
 			entries.map(([key, value]) => value && names.push(key))
 		}
 		return

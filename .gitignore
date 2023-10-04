@@ -1,12 +1,7 @@
 # repository
 node_modules
 .vercel
-.vscode
-
-# next.js
 .next
-.swc
-out
 next-env.d.ts
 
 # debug

@@ -1,0 +1,17 @@
+{
+	"css.validate": false,
+	"editor.formatOnSave": true,
+	"explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.patterns": {
+		"*.ts": "$(capture).js, $(capture).*.js, $(capture).*.ts, $(capture).ts.snap",
+		"*.tsx": "$(capture).js, $(capture).*.js, $(capture).*.ts, $(capture).module.sass, $(capture).module.css",
+		".env": "*.env, .env.*, .envrc",
+		"package.json": ".npm*, .nvmrc, .pnpm*, pnpm*, package-lock.json, yarn*, .github*, .gitlab*, .gitpod*, .huskyrc*, .nodemon*, .prettier*",
+		"readme*": "changelog*, code_of_conduct*, license*, readme*, security.md"
+	},
+	"explorer.sortOrder": "type",
+	"scss.validate": false,
+	"tailwindCSS.experimental.classRegex": [
+		["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+	]
+}

@@ -1,10 +1,8 @@
 node_modules
-coverage
-build
 .vercel
 .turbo
 .next
-.swc
+.prettierrc
 
 package-lock.json
 pnpm-*.yaml

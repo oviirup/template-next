@@ -1,9 +1,8 @@
-import meta from '@/app/meta'
-import { cn } from '@/library/utils'
-import { inter, raleway } from '@/styles/font'
-import '@/styles/global.sass'
+import { cn } from '@/lib/utils'
+import { inter, raleway } from './fonts'
+import './global.scss'
 
-export const metadata = meta
+export { metadata } from './metadata'
 
 export default function RootLayout({ children }: Props) {
 	const fonts = [raleway.variable, inter.variable]

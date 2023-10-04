@@ -1,10 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
 	reactStrictMode: true,
 	compiler: {
 		removeConsole: { exclude: ['warn', 'error'] },
 	},
 	cleanDistDir: true,
 }
-
-export default nextConfig

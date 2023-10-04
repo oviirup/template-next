@@ -1,8 +1,7 @@
-import type { Config } from 'tailwindcss'
-import colors from 'tailwindcss/colors'
+const colors = require('tailwindcss/colors')
 
-/** Main tailwind config */
-const tailwindConfig: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
 	darkMode: 'media',
 	content: [
 		'./app/**/*.{js,jsx,ts,tsx,mdx}',
@@ -14,16 +13,17 @@ const tailwindConfig: Config = {
 			center: true,
 			screens: { xl: '80rem' },
 		},
-		// prettier-ignore
-		zIndex: ['auto',0,1,2,3,4,5,10,20,30,40,50].reduce((obj, value) => {
-			obj[value] = String(value)
-			return obj
-		}, {} as Record<string, string>),
+		zIndex: ['auto', 0, 1, 2, 3, 4, 5, 10, 20, 30, 40, 50].reduce(
+			(obj, value) => {
+				obj[value] = String(value)
+				return obj
+			},
+			{},
+		),
 		extend: {
 			colors: {
 				primary: colors.indigo,
 				gray: colors.neutral,
-				//@ts-ignore removes neutral colors
 				neutral: null,
 			},
 			fontFamily: {
@@ -32,7 +32,6 @@ const tailwindConfig: Config = {
 			},
 		},
 	},
-	future: { hoverOnlyWhenSupported: true },
 }
 
-export default tailwindConfig
+ 

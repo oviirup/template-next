@@ -1,6 +1,6 @@
-import { forwardRef } from 'react'
 import Anchor, { LinkProps } from 'next/link'
-import { isExternal } from '@/library/utils'
+import { forwardRef } from 'react'
+import { isExternal } from '@/lib/utils'
 
 type HTMLProps = Omit<HTML<HTMLAnchorElement>, keyof LinkProps>
 type AnchorProps = LinkProps & HTMLProps & { text?: React.ReactNode }

@@ -1,4 +1,5 @@
-import { Raleway, Inter } from 'next/font/google'
+// cspell:disable
+import { Inter, Raleway } from 'next/font/google'
 
 export const raleway = Raleway({
 	variable: '--font-raleway',

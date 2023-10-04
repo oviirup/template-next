@@ -3,13 +3,16 @@
 	"arrowParens": "always",
 	"bracketSameLine": true,
 	"importOrder": [
-		"^(react/(.*)$)|^(react(.*)$)",
+		"^(react|next)(.*)$",
 		"<THIRD_PARTY_MODULES>",
 		"^@/(.*)",
-		"<TYPES>",
 		"^[./]"
 	],
 	"jsxSingleQuote": true,
+	"overrides": [{
+		"files": "*.{scss,css}",
+		"options": { "printWidth": 240 }
+	}],
 	"plugins": [
 		"prettier-plugin-packagejson",
 		"prettier-plugin-imports",
