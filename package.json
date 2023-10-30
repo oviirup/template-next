@@ -10,9 +10,9 @@
 		"start": "next start"
 	},
 	"dependencies": {
-		"next": "13.5.4",
-		"react": "18.2.0",
-		"react-dom": "18.2.0",
+		"next": "14",
+		"react": "18.2",
+		"react-dom": "18.2",
 		"sharp": "latest"
 	},
 	"devDependencies": {
@@ -33,5 +33,11 @@
 		"sass": "latest",
 		"tailwindcss": "latest",
 		"typescript": "latest"
+	},
+	"postcss": {
+		"plugins": {
+			"tailwindcss": "src/styles/tailwind.ts",
+			"autoprefixer": {}
+		}
 	}
 }

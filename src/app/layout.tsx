@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
-import { inter, raleway } from './fonts'
-import './global.scss'
+import { inter, raleway } from '@/styles/fonts'
+import '@/styles/globals.scss'
 
 export { metadata } from './metadata'
 
