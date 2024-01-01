@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 html {
-	@apply overflow-x-hidden scroll-smooth;
-	@apply bg-gray-50 text-black dark:bg-gray-950 dark:text-white;
+  @apply overflow-x-hidden focus-within:scroll-smooth;
+  @apply bg-gray-50 text-black dark:bg-gray-950 dark:text-white;
 }
 
 body {
-	-webkit-tap-highlight-color: transparent;
-	@apply font-inter grid min-h-screen grid-rows-[auto_1fr_auto] overflow-x-clip;
+  -webkit-tap-highlight-color: transparent;
+  @apply font-inter grid min-h-screen grid-rows-[auto_1fr_auto] overflow-x-hidden;
 }

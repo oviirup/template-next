@@ -1,7 +1,9 @@
 # repository
 node_modules
 .vercel
+.turbo
 .next
+out
 next-env.d.ts
 
 # debug

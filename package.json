@@ -1,43 +1,47 @@
 {
-	"name": "next-template",
-	"version": "1.0.1",
-	"private": true,
-	"scripts": {
-		"build": "next build",
-		"dev": "next dev",
-		"format": "prettier --write .",
-		"lint": "next lint",
-		"start": "next start"
-	},
-	"dependencies": {
-		"next": "14",
-		"react": "18.2",
-		"react-dom": "18.2",
-		"sharp": "latest"
-	},
-	"devDependencies": {
-		"@types/node": "latest",
-		"@types/react": "latest",
-		"@types/react-dom": "latest",
-		"autoprefixer": "latest",
-		"eslint": "latest",
-		"eslint-config-next": "latest",
-		"eslint-config-prettier": "latest",
-		"eslint-plugin-react-hooks": "latest",
-		"eslint-plugin-tailwindcss": "latest",
-		"postcss": "latest",
-		"prettier": "latest",
-		"prettier-plugin-imports": "npm:@ianvs/prettier-plugin-sort-imports@latest",
-		"prettier-plugin-packagejson": "latest",
-		"prettier-plugin-tailwindcss": "latest",
-		"sass": "latest",
-		"tailwindcss": "latest",
-		"typescript": "latest"
-	},
-	"postcss": {
-		"plugins": {
-			"tailwindcss": "src/styles/tailwind.ts",
-			"autoprefixer": {}
-		}
-	}
+  "name": "next-template",
+  "version": "1.0.1",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "format": "prettier --write .",
+    "lint": "next lint",
+    "start": "next start"
+  },
+  "dependencies": {
+    "lucide-react": "^0.303.0",
+    "next": "^14.0.4",
+    "react": "18.2",
+    "react-dom": "18.2",
+    "sharp": "^0.33",
+    "tailwind-merge": "^2.2"
+  },
+  "devDependencies": {
+    "@types/node": "20.10",
+    "@types/react": "18.2",
+    "@types/react-dom": "18.2",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-tailwindcss": "^3.13.0",
+    "postcss": "^8.4.32",
+    "prettier": "^3.1.0",
+    "prettier-plugin-imports": "npm:@ianvs/prettier-plugin-sort-imports@latest",
+    "prettier-plugin-packagejson": "^2.4.8",
+    "prettier-plugin-tailwindcss": "^0.5.10",
+    "sass": "^1.69.6",
+    "tailwindcss": "^3.4.0",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.3.3"
+  },
+  "postcss": {
+    "plugins": {
+      "tailwindcss": "./src/styles/tailwind.ts",
+      "autoprefixer": {}
+    }
+  }
 }

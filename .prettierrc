@@ -1,28 +1,25 @@
 {
-	"$schema": "https://json.schemastore.org/prettierrc.json",
-	"arrowParens": "always",
-	"bracketSameLine": true,
-	"importOrder": [
-		"^(react|next)(.*)$",
-		"<THIRD_PARTY_MODULES>",
-		"^@/(.*)",
-		"^[./]"
-	],
-	"jsxSingleQuote": true,
-	"overrides": [{
-		"files": "*.{scss,css}",
-		"options": { "printWidth": 240 }
-	}],
-	"plugins": [
-		"prettier-plugin-packagejson",
-		"prettier-plugin-imports",
-		"prettier-plugin-tailwindcss"
-	],
-	"printWidth": 80,
-	"quoteProps": "consistent",
-	"semi": false,
-	"singleQuote": true,
-	"tabWidth": 2,
-	"trailingComma": "all",
-	"useTabs": true
+  "$schema": "https://json.schemastore.org/prettierrc.json",
+  "arrowParens": "always",
+  "bracketSameLine": true,
+  "endOfLine": "lf",
+  "importOrder": [
+    "^(react|next)(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^@/(.*)$",
+    "^[./]",
+    "<TYPES>"
+  ],
+  "jsxSingleQuote": true,
+  "plugins": [
+    "prettier-plugin-packagejson",
+    "prettier-plugin-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+  "printWidth": 80,
+  "quoteProps": "consistent",
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "all"
 }
