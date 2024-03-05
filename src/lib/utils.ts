@@ -1,5 +1,4 @@
 import { twMerge } from 'tailwind-merge';
-import type { UrlObject } from 'url';
 
 /** creates a formatted className from given arguments */
 export function cn(...args: any[]): string {
@@ -20,13 +19,6 @@ export function cn(...args: any[]): string {
     return;
   });
   return twMerge(names);
-}
-
-/** Detects if string url is external url */
-export function isExternal(href: string | UrlObject) {
-  if (!href) return false;
-  href = href.toString();
-  return /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[\:?\d]*)\S*$/.test(href);
 }
 
 /* Converts a boolean value into a boolean attribute type */

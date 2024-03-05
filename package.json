@@ -1,13 +1,15 @@
 {
   "name": "next-template",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "commonjs",
   "private": true,
   "scripts": {
     "build": "next build",
     "dev": "next dev",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "lint": "next lint",
+    "prepare": "husky",
     "start": "next start"
   },
   "dependencies": {
@@ -27,6 +29,8 @@
     "eslint-config-next": "^14.1",
     "eslint-config-prettier": "^9",
     "eslint-plugin-tailwindcss": "^3",
+    "husky": "^9",
+    "lint-staged": "^15",
     "postcss": "^8",
     "prettier": "latest",
     "prettier-plugin-imports": "npm:@trivago/prettier-plugin-sort-imports@latest",
@@ -36,5 +40,8 @@
     "tailwindcss": "^3",
     "tailwindcss-animate": "^1",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,md,json,css,scss}": "prettier --write"
   }
 }
