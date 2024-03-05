@@ -3,9 +3,5 @@
   "editor.formatOnSave": true,
   "explorer.sortOrder": "type",
   "css.validate": false,
-  "scss.validate": false,
-  "tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ]
+  "scss.validate": false
 }

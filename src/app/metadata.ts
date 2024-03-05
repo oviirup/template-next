@@ -1,5 +1,5 @@
-import { SITE_TITLE, SITE_URL } from '@/app/config';
 import type { Metadata, Viewport } from 'next';
+import { SITE_TITLE, SITE_URL } from '@/app/config';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

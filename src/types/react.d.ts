@@ -1,6 +1,3 @@
-/// <reference types="next" />
-/// <reference types="next/image-types/global" />
-
 import 'react';
 
 declare module 'react' {

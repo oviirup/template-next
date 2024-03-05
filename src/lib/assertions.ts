@@ -1,12 +1,3 @@
-import { UrlObject } from 'url';
-
-/** Detects if string url is external url */
-export function isExternal(href: string | UrlObject) {
-  if (!href) return false;
-  href = href.toString();
-  return /^(?:\w+:)?\/\/([^\s\.]+\.\S{2}|localhost[\:?\d]*)\S*$/.test(href);
-}
-
 /** Checks if the given value is an array */
 export function isArray<T>(value: any): value is Array<T> {
   return Array.isArray(value);

@@ -9,5 +9,6 @@ html {
 
 body {
   -webkit-tap-highlight-color: transparent;
-  @apply font-inter grid min-h-screen grid-rows-[auto_1fr_auto] overflow-x-hidden;
+  @apply grid  grid-rows-[auto_1fr_auto];
+  @apply min-h-dvh overflow-x-hidden font-inter;
 }

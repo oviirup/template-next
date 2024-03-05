@@ -1,11 +1,5 @@
 {
-  "extends": [
-    "next",
-    "prettier",
-    "plugin:import/typescript",
-    "plugin:react-hooks/recommended",
-    "plugin:tailwindcss/recommended"
-  ],
+  "extends": ["next", "prettier", "plugin:tailwindcss/recommended"],
   "rules": {
     "no-console": "warn",
     "eqeqeq": "warn"

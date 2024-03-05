@@ -2,21 +2,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Next.js: debug server-side",
-      "type": "node-terminal",
-      "request": "launch",
-      "command": "pnpm run dev",
-      "skipFiles": ["<node_internals>/**", ".next"]
-    },
-    {
-      "name": "Next.js: debug client-side",
-      "type": "chrome",
-      "request": "launch",
-      "url": "http://localhost:3000",
-      "skipFiles": ["<node_internals>/**", ".next"]
-    },
-    {
-      "name": "Next.js: debug full stack",
+      "name": "Debug full-stack",
       "type": "node-terminal",
       "request": "launch",
       "command": "pnpm run dev",
@@ -24,10 +10,11 @@
       "env": {
         "NODE_OPTIONS": "--inspect"
       },
+      "cwd": "${workspaceFolder}",
       "serverReadyAction": {
-        "pattern": "started server on .+, url: (https?://.+)",
+        "pattern": "- Local:\\s+(https?://.+)",
         "uriFormat": "%s",
-        "action": "debugWithChrome"
+        "action": "openExternally"
       }
     }
   ]

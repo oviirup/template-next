@@ -1,8 +1,5 @@
-import tailwindAnimate from 'tailwindcss-animate';
-import colors from 'tailwindcss/colors';
-import type { Config } from 'tailwindcss';
-
-const tailwindConfig: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   darkMode: ['class', 'data-theme="dark"'],
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
@@ -12,9 +9,7 @@ const tailwindConfig: Config = {
       screens: { xl: '80rem' },
     },
     extend: {
-      colors: {
-        gray: colors.neutral,
-      },
+      colors: {},
       zIndex: Array.from('123456789').reduce((acc, e) => {
         return Object.assign(acc, { [e]: e });
       }, {}),
@@ -24,7 +19,5 @@ const tailwindConfig: Config = {
       },
     },
   },
-  plugins: [tailwindAnimate],
+  plugins: [require('tailwindcss-animate')],
 };
-
-export default tailwindConfig;
