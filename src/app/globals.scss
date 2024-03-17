@@ -9,6 +9,6 @@ html {
 
 body {
   -webkit-tap-highlight-color: transparent;
-  @apply grid  grid-rows-[auto_1fr_auto];
+  @apply grid grid-rows-[auto_1fr_auto];
   @apply min-h-dvh overflow-x-hidden font-inter;
 }

@@ -1,4 +1,5 @@
 import { twMerge } from 'tailwind-merge';
+import { SITE_URL } from '@/app/constants';
 
 /** creates a formatted className from given arguments */
 export function cn(...args: any[]): string {
@@ -19,6 +20,13 @@ export function cn(...args: any[]): string {
     return;
   });
   return twMerge(names);
+}
+
+/** returns the canonical url to given path and params */
+export function canonicalURL(path: string, params?: Record<string, string>) {
+  const url = new URL(SITE_URL);
+  url.pathname = path;
+  return url.toString();
 }
 
 /* Converts a boolean value into a boolean attribute type */

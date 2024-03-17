@@ -13,7 +13,7 @@
   "jsxSingleQuote": true,
   "plugins": [
     "prettier-plugin-pkg",
-    "prettier-plugin-imports",
+    "@trivago/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss"
   ],
   "printWidth": 80,
@@ -21,6 +21,6 @@
   "semi": true,
   "singleQuote": true,
   "tabWidth": 2,
-  "tailwindFunctions":["clsx","cn"],
+  "tailwindFunctions": ["clsx", "cn"],
   "trailingComma": "all"
 }

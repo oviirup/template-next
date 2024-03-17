@@ -1,6 +1,6 @@
+import { inter, raleway } from '@/app/fonts';
+import '@/app/globals.scss';
 import { cn } from '@/lib/utils';
-import { inter, raleway } from '@/styles/fonts';
-import '@/styles/globals.scss';
 
 export { metadata, viewport } from './metadata';
 

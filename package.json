@@ -21,6 +21,8 @@
     "tailwind-merge": "^2.2"
   },
   "devDependencies": {
+    "@oviirup/tailwindcss-animate": "^1",
+    "@trivago/prettier-plugin-sort-imports": "latest",
     "@types/node": "20.10",
     "@types/react": "^18.2",
     "@types/react-dom": "^18.2",
@@ -33,7 +35,6 @@
     "lint-staged": "^15",
     "postcss": "^8",
     "prettier": "latest",
-    "prettier-plugin-imports": "npm:@trivago/prettier-plugin-sort-imports@latest",
     "prettier-plugin-pkg": "latest",
     "prettier-plugin-tailwindcss": "latest",
     "sass": "^1",

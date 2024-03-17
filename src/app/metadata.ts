@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { SITE_TITLE, SITE_URL } from '@/app/config';
+import { SITE_TITLE, SITE_URL } from '@/app/constants';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -16,6 +16,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  initialScale: 1,
   viewportFit: 'cover',
   colorScheme: 'light dark',
 };
