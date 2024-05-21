@@ -10,7 +10,7 @@ type SVGAttr = React.SVGAttributes<SVGElement> & { size?: number };
 
 /** React props with children */
 type Props<P = {}> = React.PropsWithChildren<P>;
-/** page props with dynamic params and search params */
+/** Page props with dynamic params and search params */
 type PageProps = {
   params?: Record<string | string[]>;
   searchParams?: Record<string | string[]>;
