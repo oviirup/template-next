@@ -5,7 +5,6 @@ module.exports = {
   reactStrictMode: true,
   experimental: {
     typedRoutes: true,
-    optimizePackageImports: ['lucide-react'],
   },
   env: {
     NEXT_PUBLIC_VERSION: version,

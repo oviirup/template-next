@@ -1,5 +1,4 @@
 import { twMerge } from 'tailwind-merge';
-import { SITE_URL } from '@/lib/constants';
 
 /**
  * Creates a formatted className from given arguments
