@@ -1,14 +1,12 @@
-import { twMerge } from 'tailwind-merge';
-import { SITE_URL } from '@/app/constants';
+import { SITE_URL } from '@/lib/constants';
 
 /**
  * Returns the canonical url to given path and params
  *
  * @param {string} path - URL path
- * @param {Record<string, string>} [params] - Search params
  * @returns {string} Canonical url relative to the site root
  */
-export function canonicalURL(path, params) {
+export function canonicalURL(path) {
   const url = new URL(SITE_URL);
   url.pathname = path;
   return url.toString();

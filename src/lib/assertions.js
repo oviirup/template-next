@@ -25,12 +25,7 @@ export function isEmptyArray(value) {
  * @returns {value is Record<string, any>}
  */
 export function isObject(value) {
-  const type = typeof value;
-  return (
-    value !== null &&
-    (type === 'object' || type === 'function') &&
-    !isArray(value)
-  );
+  return value !== null && typeof value === 'object' && !isArray(value);
 }
 
 /**
@@ -51,8 +46,9 @@ export function isEmptyObject(value) {
  */
 export function isEmpty(value) {
   if (isArray(value)) return isEmptyArray(value);
-  if (isObject(value)) return isEmptyObject(value);
-  if (value === null || value === '') return true;
+  if (typeof value === 'object' && value !== null) return isEmptyObject(value);
+  if (value === null || value === undefined) return true;
+  if (typeof value === 'string' && value.trim() === '') return true;
   return false;
 }
 

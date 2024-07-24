@@ -1,4 +1,11 @@
-const { version } = require('./package.json');
+import { build } from '@oviirup/sprite';
+import './src/env.js'; // verify environment variables on build
+
+if (process.env.SPRITE_BUILD !== 'true') {
+  // prevents restarting the build
+  process.env.SPRITE_BUILD = 'true';
+  build();
+}
 
 /** @type {import('next').NextConfig} */
 module.exports = {
@@ -6,12 +13,6 @@ module.exports = {
   experimental: {
     typedRoutes: true,
   },
-  env: {
-    NEXT_PUBLIC_VERSION: version,
-  },
   // configure eslint for next.js
-  eslint: {
-    dirs: ['./src'],
-    ignoreDuringBuilds: true,
-  },
+  eslint: { dirs: ['./src'], ignoreDuringBuilds: true },
 };

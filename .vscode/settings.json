@@ -3,5 +3,21 @@
   "editor.formatOnSave": true,
   "explorer.sortOrder": "type",
   "css.validate": false,
-  "scss.validate": false
+  "scss.validate": false,
+  // file nesting
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.js": "${capture}.js.map, ${capture}.*.js, ${capture}.d.ts",
+    "*.tsx": "${capture}.module.scss, ${capture}.*.tsx, ${capture}.*.ts"
+  },
+  // tailwind support for cva and classNames
+  "tailwindCSS.classAttributes": ["className", "\\w+ClassName"],
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  // prettier-ignore
+  "cSpell.words": [
+    "envalid","hookform","inter","tailwindcss","webp","zod",
+  ]
 }

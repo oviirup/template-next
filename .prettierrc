@@ -10,10 +10,15 @@
     "^[./]",
     "<TYPES>"
   ],
+  "importOrderTSVersion": "5.5.4",
   "jsxSingleQuote": true,
+  "overrides": [
+    { "files": ["*.css", "*.scss"], "options": { "printWidth": 240 } },
+    { "files": ["*.json", ".*rc"], "options": { "trailingComma": "none" } }
+  ],
   "plugins": [
     "prettier-plugin-pkg",
-    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-imports",
     "prettier-plugin-jsdoc",
     "prettier-plugin-tailwindcss"
   ],
