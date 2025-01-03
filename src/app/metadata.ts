@@ -1,5 +1,5 @@
+import { SITE_TITLE, SITE_URL } from '~/const';
 import type { Metadata, Viewport } from 'next';
-import { SITE_TITLE, SITE_URL } from '@/lib/constants';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

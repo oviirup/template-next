@@ -1,14 +1,14 @@
-import { SITE_URL } from '@/lib/constants';
+import { SITE_URL } from '~/const';
 
 /**
  * Returns the canonical url to given path and params
  *
- * @param {string} path - URL path
- * @returns {string} Canonical url relative to the site root
+ * @param path - URL path
+ * @returns Canonical url relative to the site root
  */
-export function canonicalURL(path) {
+export function canonicalURL(path: string) {
   const url = new URL(SITE_URL);
-  url.pathname = path;
+  url.pathname = path.endsWith('/') ? path : `${path}/`;
   return url.toString();
 }
 
@@ -18,10 +18,9 @@ export function canonicalURL(path) {
  * @example
  *   slugify('Google This'); // 'google-this'
  *
- * @param {string} string
  * @link https://github.com/jonschlinkert/dashify
  */
-export function slugify(string) {
+export function slugify(string: string) {
   if (typeof string !== 'string') {
     throw new TypeError('expected a string');
   }

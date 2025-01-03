@@ -50,7 +50,7 @@ const config: Config = {
           fg: 'hsl(var(--destructive-fg))',
         },
         sidebar: {
-          DEFAULT: 'hsl(var(--sidebar))',
+          DEFAULT: 'hsl(var(--sidebar-bg))',
           fg: 'hsl(var(--sidebar-fg))',
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))',
@@ -62,6 +62,13 @@ const config: Config = {
             DEFAULT: 'hsl(var(--sidebar-accent))',
             fg: 'hsl(var(--sidebar-accent-fg))',
           },
+        },
+        chart: {
+          '1': 'hsl(var(--chart-1))',
+          '2': 'hsl(var(--chart-2))',
+          '3': 'hsl(var(--chart-3))',
+          '4': 'hsl(var(--chart-4))',
+          '5': 'hsl(var(--chart-5))',
         },
       },
       borderRadius: {

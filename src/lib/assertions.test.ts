@@ -1,12 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import {
-  isArray,
-  isEmpty,
-  isEmptyArray,
-  isEmptyObject,
-  isFunction,
-  isObject,
-} from './assertions';
+import { isArray, isEmpty, isEmptyArray, isEmptyObject, isFunction, isObject } from './assertions';
 
 // Adjust the path as needed
 
@@ -107,6 +100,7 @@ describe('assertions', () => {
   describe('isFunction', () => {
     it('should return true for functions', () => {
       expect(isFunction(() => {})).toBe(true);
+      // eslint-disable-next-line prefer-arrow-callback
       expect(isFunction(function () {})).toBe(true);
     });
 
