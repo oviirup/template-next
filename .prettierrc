@@ -2,31 +2,19 @@
   "$schema": "https://json.schemastore.org/prettierrc.json",
   "arrowParens": "always",
   "bracketSameLine": true,
-  "endOfLine": "lf",
   "importOrder": [
-    "^(react|next)(.*)$",
+    "<BUILTIN_MODULES>",
+    "^(react/(.*)$)|^(react$)",
+    "^(next/(.*)$)|^(next$)",
     "<THIRD_PARTY_MODULES>",
-    "^@/(.*)$",
+    "^~/(.*)$",
     "^[./]",
     "<TYPES>"
   ],
-  "importOrderTSVersion": "5.5.4",
-  "jsxSingleQuote": true,
-  "overrides": [
-    { "files": ["*.css", "*.scss"], "options": { "printWidth": 240 } },
-    { "files": ["*.json", ".*rc"], "options": { "trailingComma": "none" } }
-  ],
-  "plugins": [
-    "prettier-plugin-pkg",
-    "prettier-plugin-imports",
-    "prettier-plugin-jsdoc",
-    "prettier-plugin-tailwindcss"
-  ],
-  "printWidth": 80,
+  "plugins": ["prettier-plugin-pkg", "prettier-plugin-imports", "prettier-plugin-jsdoc", "prettier-plugin-tailwindcss"],
+  "printWidth": 120,
   "quoteProps": "consistent",
   "semi": true,
-  "singleQuote": true,
-  "tabWidth": 2,
   "tailwindFunctions": ["clsx", "cn"],
   "trailingComma": "all"
 }
