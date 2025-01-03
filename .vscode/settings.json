@@ -20,6 +20,7 @@
   ],
   // prettier-ignore
   "cSpell.words": [
-    "envalid","hookform","inter","tailwindcss","webp","zod",
+    "envalid","hookform","inter","rehype","tailwindcss","webp","zod","shiki",
+    "fira","qrcode","pluggables",
   ]
 }
