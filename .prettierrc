@@ -4,14 +4,19 @@
   "bracketSameLine": true,
   "importOrder": [
     "<BUILTIN_MODULES>",
-    "^(react/(.*)$)|^(react$)",
-    "^(next/(.*)$)|^(next$)",
+    "^(react).*",
+    "^(next).*",
     "<THIRD_PARTY_MODULES>",
     "^~/(.*)$",
     "^[./]",
     "<TYPES>"
   ],
-  "plugins": ["prettier-plugin-pkg", "prettier-plugin-imports", "prettier-plugin-jsdoc", "prettier-plugin-tailwindcss"],
+  "plugins": [
+    "prettier-plugin-pkg",
+    "prettier-plugin-imports",
+    "prettier-plugin-jsdoc",
+    "prettier-plugin-tailwindcss"
+  ],
   "printWidth": 120,
   "quoteProps": "consistent",
   "semi": true,
