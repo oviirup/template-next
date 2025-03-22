@@ -21,5 +21,6 @@
   "quoteProps": "consistent",
   "semi": true,
   "tailwindFunctions": ["clsx", "cn"],
+  "tailwindStylesheet": "src/styles/globals.css",
   "trailingComma": "all"
 }
