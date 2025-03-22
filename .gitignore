@@ -16,3 +16,6 @@ next-env.d.ts
 # local env files
 .env*
 !.env.example
+
+# generated files
+public/*.sprite.svg

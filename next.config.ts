@@ -1,5 +1,12 @@
+import { build } from '@oviirup/sprite';
 import { isDev } from './src/env';
 import type { NextConfig } from 'next';
+
+// build sprite files once
+if (!process.env.sprite_build_complete) {
+  build({ watch: isDev });
+  process.env.sprite_build_complete = 'TRUE';
+}
 
 const config: NextConfig = {
   // disable eslint & typescript during build
