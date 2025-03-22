@@ -6,13 +6,13 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "clean": "npx rimraf .next out",
+    "clean": "npx rimraf .next .turbo out",
     "dev": "next dev --turbo",
     "format": "prettier . -w -u --cache",
+    "format:check": "prettier . --check",
     "lint": "next lint",
-    "prepare": "husky",
     "start": "next start",
-    "test": "vitest --run"
+    "type:check": "tsc --noEmit"
   },
   "dependencies": {
     "class-variance-authority": "~0.7.1",
@@ -37,8 +37,6 @@
     "eslint-config-prettier": "~10.1.1",
     "eslint-plugin-only-warn": "~1.1.0",
     "eslint-plugin-tailwindcss": "~3.18.0",
-    "husky": "~9.1.7",
-    "lint-staged": "~15.5.0",
     "postcss": "~8.5.3",
     "prettier": "~3.5.3",
     "prettier-plugin-imports": "~4.2.12",
@@ -48,12 +46,7 @@
     "sass": "~1.86.0",
     "tailwindcss": "~3.4.17",
     "tailwindcss-pluggables": "~1.0.4",
-    "typescript": "~5.8.2",
-    "vitest": "~3.0.9"
-  },
-  "lint-staged": {
-    "*": "prettier -w -u",
-    "*.{ts,tsx,js,jsx}": "eslint"
+    "typescript": "~5.8.2"
   },
   "sprite": [
     "src/icon.sprite.json"
