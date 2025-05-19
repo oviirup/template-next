@@ -1,3 +1,3 @@
-export { Anchor } from './anchor';
-export { Icon } from './icon';
-export { Sprite } from './sprite';
+export { Anchor } from './anchor'
+export { Icon } from './icon'
+export { Sprite } from './sprite'

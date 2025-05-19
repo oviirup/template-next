@@ -7,15 +7,6 @@
     "source.fixAll.eslint": "explicit"
   },
   "css.validate": false,
-  "scss.validate": false,
-  // file nesting
-  "explorer.fileNesting.enabled": true,
-  "explorer.fileNesting.expand": false,
-  "explorer.fileNesting.patterns": {
-    "package.json": ".nvmrc, .npm*, bun.lockb, bun.lock, pnpm*",
-    "*.js": "",
-    "*.ts": ""
-  },
   // tailwind support for cva and classNames
   "tailwindCSS.classAttributes": ["className", "\\w+ClassName"],
   "tailwindCSS.experimental.classRegex": [
@@ -26,6 +17,5 @@
   "cSpell.words": [
     "envalid","hookform","inter","rehype","tailwindcss","webp","zod","shiki",
     "fira","qrcode","pluggables","popover","stylesheet"
-  ],
-  "cSpell.language": "en-gb"
+  ]
 }

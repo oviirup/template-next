@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { Sprite } from './sprite';
-import type IconsSprite from '~/icon.sprite.json';
+import * as React from 'react'
+import { Sprite } from './sprite'
+import type IconsSprite from '~/icon.sprite.json'
 
 /**
  * Icon component with svg sprites
@@ -23,15 +23,15 @@ function Icon({ size = '1.25em', name, ...props }: Icon.Props) {
       aria-hidden
       {...props}
     />
-  );
+  )
 }
 
 namespace Icon {
-  export type IconNames = keyof (typeof IconsSprite)['icons'];
+  export type IconNames = keyof (typeof IconsSprite)['icons']
   export type Props = React.SVGAttributes<SVGElement> & {
-    name: IconNames;
-    size?: number | string;
-  };
+    name: IconNames
+    size?: number | string
+  }
 }
 
-export { Icon };
+export { Icon }

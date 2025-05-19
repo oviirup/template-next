@@ -1,5 +1,4 @@
 public/**/*
-.*rc
 *.min.*
 
 # package lock files
