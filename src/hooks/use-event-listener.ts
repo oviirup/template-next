@@ -58,21 +58,19 @@ export function useEventListener<
     // Define the listening target
     const targetElement: T | Window = element?.current || window
     if (!(targetElement && targetElement.addEventListener)) return
-
     const ctrl = new AbortController()
     // Add event listener
     const eventListener: typeof callback = (event) => {
       if (!!handler?.current) handler.current(event)
     }
-
     // add event listener
     const handlerOptions = Object.assign(
       { signal: ctrl.signal },
       opts === null ? {} : opts,
     )
     targetElement.addEventListener(event_name, eventListener, handlerOptions)
-
     // cleanup
     return () => ctrl.abort()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [event_name, element, callback, opts, ...deps])
 }

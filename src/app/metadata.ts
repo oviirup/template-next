@@ -1,4 +1,4 @@
-import { SITE_NAME, SITE_URL } from '~/config'
+import { SITE_NAME, SITE_URL } from '~/config/app'
 import type { Metadata, Viewport } from 'next'
 
 export const metadata: Metadata = {

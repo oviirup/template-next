@@ -1,5 +1,5 @@
 import { build } from '@oviirup/sprite'
-import { isDev } from './src/env'
+import { isDev } from '~/config/env'
 import type { NextConfig } from 'next'
 
 // build sprite files once
@@ -9,16 +9,14 @@ if (!process.env.sprite_build_complete) {
 }
 
 const config: NextConfig = {
-  // disable eslint & typescript during build
+  devIndicators: false,
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
-  //enable fetch logging
   logging: {
     fetches: { fullUrl: true, hmrRefreshes: true },
   },
-  // remove console in prod
-  compiler: {
-    removeConsole: isDev ? undefined : { exclude: ['warn', 'error'] },
+  experimental: {
+    optimizePackageImports: ['lucide-react'],
   },
 }
 

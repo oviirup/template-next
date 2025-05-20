@@ -1,6 +1,6 @@
 import { cx } from 'class-variance-authority'
 import { twMerge } from 'tailwind-merge'
-import { SITE_URL } from '~/config'
+import { SITE_URL } from '~/config/app'
 import { isFunction, isObject } from '~/lib/assertions'
 
 /** Creates a formatted className from given arguments */

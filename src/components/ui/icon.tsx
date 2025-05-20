@@ -2,13 +2,20 @@ import * as React from 'react'
 import { Sprite } from './sprite'
 import type IconsSprite from '~/icon.sprite.json'
 
+export type IconNames = keyof (typeof IconsSprite)['icons']
+
+export type IconProps = React.SVGAttributes<SVGElement> & {
+  name: IconNames
+  size?: number | string
+}
+
 /**
  * Icon component with svg sprites
  *
  * @see {@link https://youtu.be/1-Gjec48nJs}
  * @see {@link https://benadam.me/thoughts/react-svg-sprites/}
  */
-function Icon({ size = '1.25em', name, ...props }: Icon.Props) {
+function Icon({ size = '1.25em', name, ...props }: IconProps) {
   return (
     <Sprite
       size={size}
@@ -28,10 +35,7 @@ function Icon({ size = '1.25em', name, ...props }: Icon.Props) {
 
 namespace Icon {
   export type IconNames = keyof (typeof IconsSprite)['icons']
-  export type Props = React.SVGAttributes<SVGElement> & {
-    name: IconNames
-    size?: number | string
-  }
+  export type Props = IconProps
 }
 
 export { Icon }

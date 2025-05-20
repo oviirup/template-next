@@ -1,23 +1,21 @@
 @import 'tailwindcss';
+@import 'tailwindcss-pluggables/animate';
 @import './variables.css';
-
-@plugin '@oviirup/tailwindcss-animate';
-
-/* theme -------------------------------------------------------------------- */
 
 @theme inline {
   /* fonts */
-  --font-sans: var(--next-font-sans);
-  --font-heading: var(--next-font-heading);
-  --font-code: var(--next-font-code);
+  --font-sans: var(--font-sans);
+  --font-code: var(--font-code);
   /* border-radius */
+  --radius-xs: 2px;
   --radius-sm: 4px;
   --radius-md: 6px;
   --radius-lg: 8px;
   --radius-xl: 12px;
-  /* colours  */
+  /* colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-highlight: var(--highlight);
   --color-card: var(--card);
   --color-card-fg: var(--card-fg);
   --color-popover: var(--popover);
@@ -31,11 +29,10 @@
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
   --color-destructive: var(--destructive);
-  --color-destructive-fg: var(--destructive-fg);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-sidebar-bg: var(--sidebar-bg);
+  --color-sidebar: var(--sidebar);
   --color-sidebar-fg: var(--sidebar-fg);
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-primary-fg: var(--sidebar-primary-fg);
@@ -43,30 +40,56 @@
   --color-sidebar-accent-fg: var(--sidebar-accent-fg);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
 }
 
 /* base styles -------------------------------------------------------------- */
 
 @layer base {
-  * {
-    @apply border-border;
-  }
   html {
-    @apply bg-background text-foreground;
+    scrollbar-gutter: stable;
+    overflow-x: hidden;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    overflow-x: clip;
+  }
+
+  * {
+    paint-order: stroke fill markers;
+    outline-offset: 4px;
+    border-style: solid;
+    border-color: var(--border);
+    scroll-margin-top: calc(var(--header-height) + 2rem);
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-ring) transparent;
+  }
+
+  *::selection {
+    background: --alpha(var(--color-ring) / 50%);
   }
 }
 
 /* variants ----------------------------------------------------------------- */
 
-@custom-variant hocus {
-  &:is(:hover, :focus-visible) {
-    @slot;
-  }
+@custom-variant hocus (&:is(:hover, :focus-visible));
+
+@custom-variant dark (&:is([data-theme='dark'] *));
+
+/* utilities ---------------------------------------------------------------- */
+
+@utility container {
+  @apply w-full max-w-[56rem] px-4 md:px-6;
 }
 
-/* components --------------------------------------------------------------- */
+@utility link {
+  @apply rounded-xs text-foreground underline decoration-current/50 underline-offset-4;
+}
+
+@utility focus-ring {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/50;
+  @apply ring-offset-background focus-visible:ring-offset-2;
+}

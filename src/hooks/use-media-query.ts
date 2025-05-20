@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { isEmpty } from '@/lib/assertions'
+import { isEmpty } from '~/lib/assertions'
 
 /**
  * Hook to check if a media query matches the current viewport.
