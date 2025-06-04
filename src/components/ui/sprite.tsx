@@ -1,10 +1,10 @@
-import * as React from 'react'
+import * as React from 'react';
 
 export type SpriteProps = React.SVGAttributes<SVGElement> & {
-  size?: number | string
-  src: string
-  name: string
-}
+  size?: number | string;
+  src: string;
+  name: string;
+};
 
 function Sprite({ size = '1.25em', name, src, ...iconProps }: Sprite.Props) {
   return (
@@ -16,11 +16,11 @@ function Sprite({ size = '1.25em', name, src, ...iconProps }: Sprite.Props) {
       role="img">
       <use href={`${src}#${name}`} />
     </svg>
-  )
+  );
 }
 
 namespace Sprite {
-  export type Props = SpriteProps
+  export type Props = SpriteProps;
 }
 
-export { Sprite }
+export { Sprite };

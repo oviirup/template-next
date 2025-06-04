@@ -1,11 +1,11 @@
-import { build } from '@oviirup/sprite'
-import { isDev } from '~/config/env'
-import type { NextConfig } from 'next'
+import { build } from '@oviirup/sprite';
+import { isDev } from '@/config/env';
+import type { NextConfig } from 'next';
 
 // build sprite files once
 if (!process.env.sprite_build_complete) {
-  build({ watch: isDev })
-  process.env.sprite_build_complete = 'TRUE'
+  build({ watch: isDev });
+  process.env.sprite_build_complete = 'TRUE';
 }
 
 const config: NextConfig = {
@@ -18,6 +18,6 @@ const config: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
-}
+};
 
-export default config
+export default config;

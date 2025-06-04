@@ -1,7 +1,9 @@
-import * as React from 'react'
-import { cn } from '~/lib/utils'
+import * as React from 'react';
+import { cn } from '@/lib/utils';
 
-type TextareaProps = React.ComponentProps<'textarea'> & { autoHeight?: boolean }
+type TextareaProps = React.ComponentProps<'textarea'> & {
+  autoHeight?: boolean;
+};
 
 function Textarea({ className, autoHeight = false, ...props }: TextareaProps) {
   return (
@@ -14,12 +16,12 @@ function Textarea({ className, autoHeight = false, ...props }: TextareaProps) {
       )}
       {...props}
     />
-  )
+  );
 }
-Textarea.displayName = 'Textarea'
+Textarea.displayName = 'Textarea';
 
 namespace Textarea {
-  export type Props = TextareaProps
+  export type Props = TextareaProps;
 }
 
-export { Textarea }
+export { Textarea };

@@ -1,5 +1,5 @@
-import { SITE_NAME, SITE_URL } from '~/config/app'
-import type { Metadata, Viewport } from 'next'
+import { SITE_NAME, SITE_URL } from '@/config/app';
+import type { Metadata, Viewport } from 'next';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',
     shortcut: [{ url: '/favicon.ico', sizes: '32' }],
   },
-}
+};
 
 export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: 'cover',
   colorScheme: 'light dark',
-}
+};

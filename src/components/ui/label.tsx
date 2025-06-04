@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { cn } from '~/lib/utils'
+import * as React from 'react';
+import { cn } from '@/lib/utils';
 
-type LabelProps = React.HTMLProps<HTMLLabelElement>
+type LabelProps = React.HTMLProps<HTMLLabelElement>;
 const Label = ({ className, ref, ...props }: LabelProps) => (
   <label
     ref={ref}
@@ -11,11 +11,11 @@ const Label = ({ className, ref, ...props }: LabelProps) => (
     )}
     {...props}
   />
-)
+);
 
 namespace Label {
-  export type Props = LabelProps
-  export type Ref = HTMLLabelElement
+  export type Props = LabelProps;
+  export type Ref = HTMLLabelElement;
 }
 
-export { Label }
+export { Label };

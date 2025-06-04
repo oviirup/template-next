@@ -1,9 +1,9 @@
-import * as React from 'react'
-import { Slot } from '@radix-ui/react-slot'
-import { cva } from 'class-variance-authority'
-import { cn } from '~/lib/utils'
-import { Tooltip } from './tooltip'
-import type { VariantProps } from 'class-variance-authority'
+import * as React from 'react';
+import { Slot } from '@radix-ui/react-slot';
+import { cva } from 'class-variance-authority';
+import { cn } from '@/lib/utils';
+import { Tooltip } from './tooltip';
+import type { VariantProps } from 'class-variance-authority';
 
 const buttonVariants = cva(
   'inline-flex cursor-pointer items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap focus-ring transition-[color,box-shadow] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0',
@@ -30,17 +30,17 @@ const buttonVariants = cva(
       size: 'default',
     },
   },
-)
+);
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants> &
   React.RefAttributes<HTMLButtonElement> & {
-    icon?: boolean
-    tooltip?: string
-    tooltipPosition?: 'top' | 'bottom' | 'left' | 'right'
-    tooltipOffset?: number
-    asChild?: boolean
-  }
+    icon?: boolean;
+    tooltip?: string;
+    tooltipPosition?: 'top' | 'bottom' | 'left' | 'right';
+    tooltipOffset?: number;
+    asChild?: boolean;
+  };
 
 function Button({
   icon,
@@ -52,13 +52,13 @@ function Button({
   tooltipOffset,
   ...props
 }: ButtonProps) {
-  const Comp = asChild ? Slot : 'button'
-  props.type ??= 'button'
+  const Comp = asChild ? Slot : 'button';
+  props.type ??= 'button';
   props.className = cn(
     buttonVariants({ variant, size }),
     icon ? 'aspect-square p-0' : undefined,
     props.className,
-  )
+  );
 
   return tooltip ? (
     <Tooltip delayDuration={100}>
@@ -71,11 +71,11 @@ function Button({
     </Tooltip>
   ) : (
     <Comp {...props} />
-  )
+  );
 }
 
 namespace Button {
-  export type Props = ButtonProps
+  export type Props = ButtonProps;
 }
 
-export { Button, buttonVariants }
+export { Button, buttonVariants };

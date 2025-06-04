@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { isEmpty } from '~/lib/assertions'
+import * as React from 'react';
+import { isEmpty } from '@/lib/assertions';
 
 /**
  * Hook to check if a media query matches the current viewport.
@@ -10,23 +10,23 @@ import { isEmpty } from '~/lib/assertions'
  */
 export function useMediaQuery(query: string, initialState = false) {
   if (isEmpty(query)) {
-    throw Error(`useMediaQuery: 'query' must not be empty`)
+    throw Error(`useMediaQuery: 'query' must not be empty`);
   }
 
-  const [matches, setMatches] = React.useState(initialState)
+  const [matches, setMatches] = React.useState(initialState);
 
   React.useEffect(() => {
-    if (typeof window === 'undefined') return
-    const media = window.matchMedia(query)
-    const ctrl = new AbortController()
+    if (typeof window === 'undefined') return;
+    const media = window.matchMedia(query);
+    const ctrl = new AbortController();
     // check if the media query matches the initial state
-    if (media.matches !== matches) setMatches(media.matches)
+    if (media.matches !== matches) setMatches(media.matches);
     // add event listener
-    const listener = () => setMatches(media.matches)
-    media.addEventListener('change', listener, { signal: ctrl.signal })
+    const listener = () => setMatches(media.matches);
+    media.addEventListener('change', listener, { signal: ctrl.signal });
     // cleanup
-    return () => media.removeEventListener('change', listener)
-  }, [query, matches])
+    return () => media.removeEventListener('change', listener);
+  }, [query, matches]);
 
-  return matches
+  return matches;
 }

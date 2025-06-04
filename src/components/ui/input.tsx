@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { cn } from '~/lib/utils'
+import * as React from 'react';
+import { cn } from '@/lib/utils';
 
-type InputProps = React.HTMLProps<HTMLInputElement>
+type InputProps = React.HTMLProps<HTMLInputElement>;
 
 function Input({ className, type = 'text', ref, ...props }: InputProps) {
   return (
@@ -14,12 +14,12 @@ function Input({ className, type = 'text', ref, ...props }: InputProps) {
       ref={ref}
       {...props}
     />
-  )
+  );
 }
 
 namespace Input {
-  export type Props = InputProps
-  export type Ref = HTMLInputElement
+  export type Props = InputProps;
+  export type Ref = HTMLInputElement;
 }
 
-export { Input }
+export { Input };

@@ -1,9 +1,9 @@
-import * as React from 'react'
-import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
-import { CheckIcon, MinusIcon } from 'lucide-react'
-import { cn } from '~/lib/utils'
+import * as React from 'react';
+import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
+import { CheckIcon, MinusIcon } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
-type CheckboxProps = React.ComponentProps<typeof CheckboxPrimitive.Root>
+type CheckboxProps = React.ComponentProps<typeof CheckboxPrimitive.Root>;
 function Checkbox({ className, ref, ...props }: CheckboxProps) {
   return (
     <CheckboxPrimitive.Root
@@ -21,12 +21,12 @@ function Checkbox({ className, ref, ...props }: CheckboxProps) {
         )}
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
-  )
+  );
 }
 
 namespace Checkbox {
-  export type Ref = React.ComponentRef<typeof CheckboxPrimitive.Root>
-  export type Props = CheckboxProps
+  export type Ref = React.ComponentRef<typeof CheckboxPrimitive.Root>;
+  export type Props = CheckboxProps;
 }
 
-export { Checkbox }
+export { Checkbox };
