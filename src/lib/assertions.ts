@@ -29,12 +29,18 @@ export function isEmpty(value: any): boolean {
   return false;
 }
 
+type Function<T> = (...args: any[]) => T;
 /** Check if the given object is a function */
-export function isFunction(value: any): value is (...args: any[]) => unknown {
+export function isFunction<T = unknown>(value: any): value is Function<T> {
   return typeof value === 'function';
 }
 
 /** Checks if current environment is running on server or client */
 export function isServer(): boolean {
   return typeof window === 'undefined';
+}
+
+/** Checks if current environment is running on client */
+export function isBrowser(): boolean {
+  return typeof window !== 'undefined';
 }
