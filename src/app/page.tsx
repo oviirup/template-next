@@ -8,5 +8,5 @@ export default function HomePage() {
         </span>
       </h1>
     </main>
-  )
+  );
 }

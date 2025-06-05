@@ -1,25 +1,25 @@
-import * as React from 'react'
-import { cn } from '~/lib/utils'
+import * as React from 'react';
+import { cn } from '@/lib/utils';
 
-type InputProps = React.HTMLProps<HTMLInputElement>
+export type InputProps = React.ComponentProps<'input'>;
 
-function Input({ className, type = 'text', ref, ...props }: InputProps) {
+function Input({ className, type = 'text', ...props }: InputProps) {
   return (
     <input
       type={type}
+      data-slot="input"
       className={cn(
-        'relative flex h-10 w-full rounded-md border border-input bg-transparent px-3 text-sm leading-relaxed text-foreground focus-ring transition-[color,box-shadow] placeholder:text-muted-fg/60 user-invalid:border-destructive focus:z-1 focus-visible:z-10 focus-visible:border-ring disabled:cursor-not-allowed disabled:opacity-50 not-focus-visible:aria-invalid:border-destructive',
+        'file:text-fg flex h-10 w-full min-w-0 rounded-md border border-input bg-input/30 px-3 py-2.25 text-sm focus-ring transition-[color,box-shadow] file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-fg disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
+        'aria-invalid:border-destructive aria-invalid:ring-destructive/30 dark:aria-invalid:ring-destructive/40',
         className,
       )}
-      ref={ref}
       {...props}
     />
-  )
+  );
 }
 
 namespace Input {
-  export type Props = InputProps
-  export type Ref = HTMLInputElement
+  export type Props = InputProps;
 }
 
-export { Input }
+export { Input };

@@ -1,21 +1,23 @@
-import * as React from 'react'
-import { cn } from '~/lib/utils'
+import * as React from 'react';
+import { cn } from '@/lib/utils';
 
-type LabelProps = React.HTMLProps<HTMLLabelElement>
-const Label = ({ className, ref, ...props }: LabelProps) => (
-  <label
-    ref={ref}
-    className={cn(
-      'text-sm leading-none text-muted-fg peer-disabled:cursor-not-allowed peer-disabled:opacity-70 after:opacity-75 data-[required]:after:content-["_*"]',
-      className,
-    )}
-    {...props}
-  />
-)
+export type LabelProps = React.ComponentProps<'label'>;
 
-namespace Label {
-  export type Props = LabelProps
-  export type Ref = HTMLLabelElement
+function Label({ className, ...props }: LabelProps) {
+  return (
+    <label
+      data-slot="label"
+      className={cn(
+        'flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50',
+        className,
+      )}
+      {...props}
+    />
+  );
 }
 
-export { Label }
+namespace Label {
+  export type Props = LabelProps;
+}
+
+export { Label };

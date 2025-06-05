@@ -1,6 +1,6 @@
-import * as React from 'react'
+import * as React from 'react';
 
-type DependencyList = readonly unknown[]
+type DependencyList = readonly unknown[];
 
 /**
  * Hook to run a callback function on a specified interval.
@@ -13,24 +13,24 @@ export function useInterval(
   delay: number,
   deps: DependencyList,
 ) {
-  const timerRef = React.useRef<NodeJS.Timeout>(null)
-  const callbackRef = React.useRef(callback)
+  const timerRef = React.useRef<NodeJS.Timeout>(null);
+  const callbackRef = React.useRef(callback);
   // safely store the callback
   React.useEffect(() => {
-    callbackRef.current = callback
-  }, [callback])
+    callbackRef.current = callback;
+  }, [callback]);
   // run the callback on specified interval
   React.useEffect(() => {
-    const tick = () => callbackRef.current()
+    const tick = () => callbackRef.current();
     if (typeof delay === 'number') {
-      timerRef.current = setInterval(tick, delay)
+      timerRef.current = setInterval(tick, delay);
       return () => {
         if (timerRef.current) {
-          clearInterval(timerRef.current)
+          clearInterval(timerRef.current);
         }
-      }
+      };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [delay, ...deps])
-  return timerRef
+  }, [delay, ...deps]);
+  return timerRef;
 }

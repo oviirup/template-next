@@ -1,6 +1,6 @@
-import { envalid } from '@oviirup/envalid'
-import { vercel } from '@oviirup/envalid/presets'
-import { z } from 'zod'
+import { envalid } from '@oviirup/envalid';
+import { vercel } from '@oviirup/envalid/presets';
+import { z } from 'zod';
 
 export const env = envalid({
   extends: [vercel()],
@@ -19,8 +19,8 @@ export const env = envalid({
   },
   // Only run validation if process is started from Next.js
   skipValidation: !process.env.NEXT_RUNTIME,
-})
+});
 
-export const isProd = env.NODE_ENV === 'production'
-export const isDev = env.NODE_ENV === 'development'
-export const isPreview = env.VERCEL_ENV === 'preview'
+export const isProd = env.NODE_ENV === 'production';
+export const isDev = env.NODE_ENV === 'development';
+export const isPreview = env.VERCEL_ENV === 'preview';

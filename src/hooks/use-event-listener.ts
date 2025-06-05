@@ -1,4 +1,4 @@
-import * as React from 'react'
+import * as React from 'react';
 
 // Windows Event based interface
 export function useEventListener<EW extends keyof WindowEventMap>(
@@ -7,7 +7,7 @@ export function useEventListener<EW extends keyof WindowEventMap>(
   opts?: null | AddEventListenerOptions,
   deps?: React.DependencyList,
   element?: undefined,
-): void
+): void;
 
 // HTML Element Based interface
 export function useEventListener<
@@ -19,7 +19,7 @@ export function useEventListener<
   opts?: null | AddEventListenerOptions,
   deps?: React.DependencyList,
   element?: React.RefObject<T>,
-): void
+): void;
 
 // Document Event based interface
 export function useEventListener<ED extends keyof DocumentEventMap>(
@@ -28,7 +28,7 @@ export function useEventListener<ED extends keyof DocumentEventMap>(
   opts?: null | AddEventListenerOptions,
   deps?: React.DependencyList,
   element?: React.RefObject<Document>,
-): void
+): void;
 
 /**
  * Hook to use event listener
@@ -51,26 +51,26 @@ export function useEventListener<
   element?: React.RefObject<T>,
 ) {
   // Create a ref that stores handler
-  const handler = React.useRef(callback)
+  const handler = React.useRef(callback);
 
   React.useEffect(() => {
-    if (typeof window === 'undefined') return
+    if (typeof window === 'undefined') return;
     // Define the listening target
-    const targetElement: T | Window = element?.current || window
-    if (!(targetElement && targetElement.addEventListener)) return
-    const ctrl = new AbortController()
+    const targetElement: T | Window = element?.current || window;
+    if (!(targetElement && targetElement.addEventListener)) return;
+    const ctrl = new AbortController();
     // Add event listener
     const eventListener: typeof callback = (event) => {
-      if (!!handler?.current) handler.current(event)
-    }
+      if (!!handler?.current) handler.current(event);
+    };
     // add event listener
     const handlerOptions = Object.assign(
       { signal: ctrl.signal },
       opts === null ? {} : opts,
-    )
-    targetElement.addEventListener(event_name, eventListener, handlerOptions)
+    );
+    targetElement.addEventListener(event_name, eventListener, handlerOptions);
     // cleanup
-    return () => ctrl.abort()
+    return () => ctrl.abort();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [event_name, element, callback, opts, ...deps])
+  }, [event_name, element, callback, opts, ...deps]);
 }
