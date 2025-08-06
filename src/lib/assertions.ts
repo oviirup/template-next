@@ -35,6 +35,16 @@ export function isFunction<T = unknown>(value: any): value is Function<T> {
   return typeof value === 'function';
 }
 
+/** Check if the given object is a date object */
+export function isDateObject(value: unknown): value is Date {
+  return value instanceof Date;
+}
+
+/** Check if the given value is a regex */
+export function isRegex(value: unknown): value is RegExp {
+  return value instanceof RegExp;
+}
+
 /** Checks if current environment is running on server or client */
 export function isServer(): boolean {
   return typeof window === 'undefined';

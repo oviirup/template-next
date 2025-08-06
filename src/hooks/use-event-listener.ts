@@ -71,6 +71,5 @@ export function useEventListener<
     targetElement.addEventListener(event_name, eventListener, handlerOptions);
     // cleanup
     return () => ctrl.abort();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [event_name, element, callback, opts, ...deps]);
+  }, [event_name, element, callback, opts, deps]);
 }

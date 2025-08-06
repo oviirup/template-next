@@ -30,7 +30,6 @@ export function useInterval(
         }
       };
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [delay, ...deps]);
+  }, [delay, deps]);
   return timerRef;
 }

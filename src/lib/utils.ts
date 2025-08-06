@@ -15,7 +15,7 @@ type PossibleRef<T> = React.Ref<T> | undefined;
  * @template El - The type of element the refs will be attached to
  * @param refs - Array of refs to combine.
  */
-export function compositeRefs<T>(
+export function composeRefs<T>(
   ...refs: PossibleRef<T>[]
 ): React.RefCallback<T> {
   return (el) => {
@@ -57,14 +57,34 @@ export function composeEventHandlers<E extends PartialEvent>(
 }
 
 /**
+ * Applies a state action to the previous state value.
+ *
+ * @param state - The state action, which can be a value or a function
+ * @param prev - The previous state value
+ * @returns The new state value after applying the action
+ */
+export function applyStateAction<T>(
+  state: React.SetStateAction<T>,
+  prev: T,
+): T {
+  return isFunction(state) ? state(prev) : state;
+}
+
+/**
  * Returns the canonical url to given path and params
  *
  * @param path - URL path
  * @returns Canonical url relative to the site root
  */
-export function canonical(path: string) {
+export function canonical(input: string, trailingSlash = true) {
+  if (/^https?:\/\//.test(input)) return input;
+  const [path, params] = input.split('?');
   const url = new URL(SITE_URL);
-  url.pathname = path.endsWith('/') ? path : `${path}/`;
+  // add pathname and apply trailing slash if needed
+  if (trailingSlash) url.pathname = path.endsWith('/') ? path : `${path}/`;
+  else url.pathname = path.endsWith('/') ? path.slice(0, -1) : path;
+  // add search params if any
+  if (params && params.length > 0) url.search = params;
   return url.toString();
 }
 
@@ -87,4 +107,29 @@ export function slugify(string: string) {
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-')
     .toLowerCase();
+}
+
+/**
+ * Truncates a string to the specified length, adding "..." if it was longer.
+ *
+ * @param text - The string to truncate
+ * @param maxLength - Maximum allowed length before truncation
+ * @returns The truncated string with "..." if needed
+ */
+export function truncate(text: string, maxLength: number): string {
+  if (typeof text !== 'string') return '';
+  if (text.length <= maxLength) return text;
+  return `${text.slice(0, maxLength).trimEnd()}...`;
+}
+
+/**
+ * Restricts a number to be within a specified range.
+ *
+ * @param value The number to clamp.
+ * @param min The lower bound of the range.
+ * @param max The upper bound of the range.
+ * @returns The clamped value, guaranteed to be between `min` and `max`
+ */
+export function clamp(value: number, min: number, max: number): number {
+  return Math.min(max, Math.max(min, value));
 }
