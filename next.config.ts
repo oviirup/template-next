@@ -16,7 +16,8 @@ const config: NextConfig = {
     fetches: { fullUrl: true, hmrRefreshes: true },
   },
   experimental: {
-    optimizePackageImports: ['lucide-react'],
+    reactCompiler: { compilationMode: 'annotation' },
+    optimizePackageImports: ['lucide-react', 'radix-ui'],
   },
 };
 

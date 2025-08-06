@@ -1,18 +1,19 @@
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
 import { FlatCompat } from '@eslint/eslintrc';
+import js from '@eslint/js';
 import config_prettier from 'eslint-config-prettier';
 import plugin_onlyWarn from 'eslint-plugin-only-warn';
+import plugin_reactCompiler from 'eslint-plugin-react-compiler';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({ baseDirectory: __dirname });
+const compat = new FlatCompat({
+  baseDirectory: import.meta.dirname,
+  recommendedConfig: js.configs.recommended,
+});
 
 /** @type {import('eslint').Linter.Config[]} */
 const config = [
   config_prettier,
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  plugin_reactCompiler.configs.recommended,
   {
     plugins: {
       onlyWarn: plugin_onlyWarn,
