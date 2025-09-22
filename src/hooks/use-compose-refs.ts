@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { composeRefs } from '@/lib/utils';
+import { composeRefs } from '@/lib/compose';
 
 type PossibleRef<T> = React.Ref<T> | undefined;
 
@@ -10,5 +10,5 @@ type PossibleRef<T> = React.Ref<T> | undefined;
  * @returns A callback ref that assigns the element to all provided refs.
  */
 export function useComposeRef<T>(...refs: PossibleRef<T>[]) {
-  return React.useCallback(() => composeRefs<T>(...refs), [refs]);
+  return React.useMemo(() => composeRefs<T>(...refs), [refs]);
 }

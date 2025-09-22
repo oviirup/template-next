@@ -8,6 +8,11 @@ export function isEmptyArray(value: any): boolean {
   return isArray(value) && value.length === 0;
 }
 
+/** Checks if the given value is an valid number */
+export function isNumber(v: any): v is number {
+  return typeof v === 'number' && Number.isFinite(v) && !Number.isNaN(v);
+}
+
 /** Checks if a value is an object (excluding arrays) */
 export function isObject<T extends object = Record<string, any>>(
   value: any,
@@ -29,9 +34,9 @@ export function isEmpty(value: any): boolean {
   return false;
 }
 
-type Function<T> = (...args: any[]) => T;
+type AnyFn<T> = (...args: any[]) => T;
 /** Check if the given object is a function */
-export function isFunction<T = unknown>(value: any): value is Function<T> {
+export function isFunction<T = unknown>(value: any): value is AnyFn<T> {
   return typeof value === 'function';
 }
 
