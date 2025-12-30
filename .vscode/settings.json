@@ -1,21 +1,15 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
   "editor.formatOnSave": true,
-  "explorer.sortOrder": "type",
+  "editor.defaultFormatter": "biomejs.biome",
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "never",
-    "source.fixAll.eslint": "explicit"
+    "source.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
   },
-  "css.validate": false,
+  "explorer.sortOrder": "type",
   // tailwind support for cva and classNames
-  "tailwindCSS.classAttributes": ["className", "\\w+ClassName"],
-  "tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
-  ],
-  // prettier-ignore
-  "cSpell.words": [
-    "envalid","hookform","inter","rehype","tailwindcss","webp","zod","shiki",
-    "fira","qrcode","pluggables","popover","stylesheet"
-  ]
+  "css.validate": false,
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.classFunctions": ["cva", "tv", "cn", "clsx"]
 }
