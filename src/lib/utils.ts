@@ -1,11 +1,9 @@
-import { cx } from "class-variance-authority";
-import { twMerge } from "tailwind-merge";
+import { twJoin, twMerge } from "tailwind-merge";
 import { SITE_URL } from "@/config/app";
-import { isFunction, isObject } from "@/lib/assertions";
 
 /** Creates a formatted className from given arguments */
 export function cn(...args: any[]) {
-  return twMerge(cx(args));
+  return twMerge(twJoin(args));
 }
 
 /**
@@ -35,9 +33,6 @@ export function canonical(input: string, trailingSlash = true) {
  * @link https://github.com/jonschlinkert/dashify
  */
 export function slugify(string: string) {
-  if (typeof string !== "string") {
-    throw new TypeError("expected a string");
-  }
   return string
     .trim()
     .replace(/([a-z])([A-Z])/g, "$1-$2")

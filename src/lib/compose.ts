@@ -15,11 +15,12 @@ export function composeRefs<T>(
       .map((ref) => {
         if (isFunction(ref)) return ref(el);
         if (isObject(ref)) ref.current = el;
+        return null;
       })
       .filter(isFunction<void>);
     // run cleanup functions if any were provided
     return () => {
-      cleanups.forEach((cleanup) => cleanup());
+      for (const cleanup of cleanups) cleanup();
     };
   };
 }
