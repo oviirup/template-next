@@ -1,7 +1,7 @@
-import { cx } from 'class-variance-authority';
-import { twMerge } from 'tailwind-merge';
-import { SITE_URL } from '@/config/app';
-import { isFunction, isObject } from '@/lib/assertions';
+import { cx } from "class-variance-authority";
+import { twMerge } from "tailwind-merge";
+import { SITE_URL } from "@/config/app";
+import { isFunction, isObject } from "@/lib/assertions";
 
 /** Creates a formatted className from given arguments */
 export function cn(...args: any[]) {
@@ -16,11 +16,11 @@ export function cn(...args: any[]) {
  */
 export function canonical(input: string, trailingSlash = true) {
   if (/^https?:\/\//.test(input)) return input;
-  const [path, params] = input.split('?');
+  const [path, params] = input.split("?");
   const url = new URL(SITE_URL);
   // add pathname and apply trailing slash if needed
-  if (trailingSlash) url.pathname = path.endsWith('/') ? path : `${path}/`;
-  else url.pathname = path.endsWith('/') ? path.slice(0, -1) : path;
+  if (trailingSlash) url.pathname = path.endsWith("/") ? path : `${path}/`;
+  else url.pathname = path.endsWith("/") ? path.slice(0, -1) : path;
   // add search params if any
   if (params && params.length > 0) url.search = params;
   return url.toString();
@@ -35,15 +35,15 @@ export function canonical(input: string, trailingSlash = true) {
  * @link https://github.com/jonschlinkert/dashify
  */
 export function slugify(string: string) {
-  if (typeof string !== 'string') {
-    throw new TypeError('expected a string');
+  if (typeof string !== "string") {
+    throw new TypeError("expected a string");
   }
   return string
     .trim()
-    .replace(/([a-z])([A-Z])/g, '$1-$2')
-    .replace(/\W/g, (m) => (/[À-ž]/.test(m) ? m : '-'))
-    .replace(/^-+|-+$/g, '')
-    .replace(/-{2,}/g, '-')
+    .replace(/([a-z])([A-Z])/g, "$1-$2")
+    .replace(/\W/g, (m) => (/[À-ž]/.test(m) ? m : "-"))
+    .replace(/^-+|-+$/g, "")
+    .replace(/-{2,}/g, "-")
     .toLowerCase();
 }
 
@@ -55,7 +55,7 @@ export function slugify(string: string) {
  * @returns The truncated string with "..." if needed
  */
 export function truncate(text: string, maxLength: number): string {
-  if (typeof text !== 'string') return '';
+  if (typeof text !== "string") return "";
   if (text.length <= maxLength) return text;
   return `${text.slice(0, maxLength).trimEnd()}...`;
 }

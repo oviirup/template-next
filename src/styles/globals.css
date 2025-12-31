@@ -1,6 +1,6 @@
-@import 'tailwindcss';
-@import 'tailwindcss-pluggables/animate';
-@import './variables.css';
+@import "tailwindcss";
+@import "tailwindcss-pluggables/animate";
+@import "./variables.css";
 
 @theme inline {
   --spacing: 4px;
@@ -55,7 +55,7 @@
     color-scheme: light;
   }
 
-  [data-theme='dark'] {
+  [data-theme="dark"] {
     color-scheme: dark;
   }
 
@@ -89,7 +89,7 @@
 
 @custom-variant hocus (&:is(:hover, :focus-visible));
 
-@custom-variant dark (&:where([data-theme='dark'] *));
+@custom-variant dark (&:where([data-theme="dark"] *));
 
 /* utilities ---------------------------------------------------------------- */
 

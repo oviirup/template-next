@@ -1,4 +1,4 @@
-import { isFunction, isObject } from './assertions';
+import { isFunction, isObject } from "./assertions";
 
 type PossibleRef<T> = React.Ref<T> | undefined;
 /**

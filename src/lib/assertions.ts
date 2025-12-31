@@ -10,14 +10,14 @@ export function isEmptyArray(value: any): boolean {
 
 /** Checks if the given value is an valid number */
 export function isNumber(v: any): v is number {
-  return typeof v === 'number' && Number.isFinite(v) && !Number.isNaN(v);
+  return typeof v === "number" && Number.isFinite(v) && !Number.isNaN(v);
 }
 
 /** Checks if a value is an object (excluding arrays) */
 export function isObject<T extends object = Record<string, any>>(
   value: any,
 ): value is T {
-  return value !== null && typeof value === 'object' && !isArray(value);
+  return value !== null && typeof value === "object" && !isArray(value);
 }
 
 /** Checks if a given value is an empty object */
@@ -28,16 +28,16 @@ export function isEmptyObject(value: any): boolean {
 /** The function checks if a value (object/array) is empty */
 export function isEmpty(value: any): boolean {
   if (isArray(value)) return isEmptyArray(value);
-  if (typeof value === 'object' && value !== null) return isEmptyObject(value);
+  if (typeof value === "object" && value !== null) return isEmptyObject(value);
   if (value === null || value === undefined) return true;
-  if (typeof value === 'string' && value.trim() === '') return true;
+  if (typeof value === "string" && value.trim() === "") return true;
   return false;
 }
 
 type AnyFn<T> = (...args: any[]) => T;
 /** Check if the given object is a function */
 export function isFunction<T = unknown>(value: any): value is AnyFn<T> {
-  return typeof value === 'function';
+  return typeof value === "function";
 }
 
 /** Check if the given object is a date object */
@@ -52,10 +52,10 @@ export function isRegex(value: unknown): value is RegExp {
 
 /** Checks if current environment is running on server or client */
 export function isServer(): boolean {
-  return typeof window === 'undefined';
+  return typeof window === "undefined";
 }
 
 /** Checks if current environment is running on client */
 export function isBrowser(): boolean {
-  return typeof window !== 'undefined';
+  return typeof window !== "undefined";
 }
