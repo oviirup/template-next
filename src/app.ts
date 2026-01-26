@@ -1,4 +1,4 @@
-import { env, isDev, isPreview } from "@/config/env";
+import { env, isDev, isPreview } from "@/env";
 
 export const SITE_NAME = "Next Template";
 export const SITE_DESC = "Simple Next.js template to get started quickly";

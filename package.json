@@ -14,8 +14,10 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@oviirup/envalid": "^0",
+    "@oviirup/env": "^1",
+    "@oviirup/utils": "^1",
     "baseui": "npm:@base-ui/react@^1",
+    "lucide-react": "^0",
     "next": "^16",
     "next-themes": "^0",
     "react": "^19",
@@ -30,7 +32,6 @@
     "@biomejs/biome": "^2",
     "@tailwindcss/postcss": "^4",
     "@types/bun": "^1",
-    "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "^1",
