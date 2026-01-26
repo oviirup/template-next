@@ -9,7 +9,7 @@
     "dev": "next dev",
     "format": "biome format --write",
     "lint": "biome lint",
-    "prepare": "husky",
+    "prepare": "lefthook install",
     "start": "next start",
     "typecheck": "tsc --noEmit"
   },
@@ -34,12 +34,8 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "^1",
-    "husky": "^9",
-    "lint-staged": "^16",
+    "lefthook": "^2",
     "tailwindcss": "^4",
     "typescript": "^5"
-  },
-  "lint-staged": {
-    "*": "biome format --write"
   }
 }
