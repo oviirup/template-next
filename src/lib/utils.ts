@@ -1,18 +1,21 @@
+import { isFunction, isObject } from "@oviirup/utils/assertions";
 import { twJoin, twMerge } from "tailwind-merge";
-import { SITE_URL } from "@/config/app";
+import { createTV, type VariantProps } from "tailwind-variants/lite";
+import { SITE_URL } from "@/app";
+import { AnyFunction } from "@/types";
 
 /** Creates a formatted className from given arguments */
 export function cn(...args: any[]) {
-  return twMerge(twJoin(args));
+  return twMerge(twJoin(...args));
 }
 
-/**
- * Returns the canonical url to given path and params
- *
- * @param path - URL path
- * @returns Canonical url relative to the site root
- */
-export function canonical(input: string, trailingSlash = true) {
+export const tv = createTV();
+export namespace tv {
+  export type Props<T extends AnyFunction> = VariantProps<T>;
+}
+
+/** Returns the canonical url to given path and params */
+export function canonical(input: string, trailingSlash = false) {
   if (/^https?:\/\//.test(input)) return input;
   const [path, params] = input.split("?");
   const url = new URL(SITE_URL);
@@ -24,45 +27,30 @@ export function canonical(input: string, trailingSlash = true) {
   return url.toString();
 }
 
-/**
- * Convert a string to a dash-separated string
- *
- * @example
- *   slugify('Google This'); // 'google-this'
- *
- * @link https://github.com/jonschlinkert/dashify
- */
-export function slugify(string: string) {
-  return string
-    .trim()
-    .replace(/([a-z])([A-Z])/g, "$1-$2")
-    .replace(/\W/g, (m) => (/[À-ž]/.test(m) ? m : "-"))
-    .replace(/^-+|-+$/g, "")
-    .replace(/-{2,}/g, "-")
-    .toLowerCase();
+/** Combines multiple React refs into a single ref callback function */
+export function composeRefs<T>(
+  ...refs: Array<React.Ref<T> | undefined>
+): React.RefCallback<T> {
+  return (el) => {
+    const cleanups = refs
+      .map((ref) => {
+        if (isFunction(ref)) return ref(el);
+        if (isObject(ref)) ref.current = el;
+        return null;
+      })
+      .filter(isFunction);
+    // run cleanup functions if any were provided
+    return () => {
+      if (cleanups.length === 0) return;
+      for (const cleanup of cleanups) cleanup();
+    };
+  };
 }
 
-/**
- * Truncates a string to the specified length, adding "..." if it was longer.
- *
- * @param text - The string to truncate
- * @param maxLength - Maximum allowed length before truncation
- * @returns The truncated string with "..." if needed
- */
-export function truncate(text: string, maxLength: number): string {
-  if (typeof text !== "string") return "";
-  if (text.length <= maxLength) return text;
-  return `${text.slice(0, maxLength).trimEnd()}...`;
-}
-
-/**
- * Restricts a number to be within a specified range.
- *
- * @param value The number to clamp.
- * @param min The lower bound of the range.
- * @param max The upper bound of the range.
- * @returns The clamped value, guaranteed to be between `min` and `max`
- */
-export function clamp(value: number, min: number, max: number): number {
-  return Math.min(max, Math.max(min, value));
+/** Applies a React SetStateAction to a previous state value */
+export function resolveStateAction<T>(
+  action: React.SetStateAction<T>,
+  prev: T,
+) {
+  return isFunction(action) ? action(prev) : action;
 }
