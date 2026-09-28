@@ -5,8 +5,8 @@
   "tsx": true,
   "tailwind": {
     "config": "",
-    "css": "src/app/globals.css",
-    "baseColor": "zinc",
+    "css": "src/styles/globals.css",
+    "baseColor": "neutral",
     "cssVariables": true,
     "prefix": ""
   },
@@ -18,10 +18,8 @@
     "hooks": "@/hooks"
   },
   "iconLibrary": "lucide",
+  "rtl": false,
   "menuColor": "default",
   "menuAccent": "subtle",
-  "registries": {
-    "@coss": "https://coss.com/ui/r/{name}.json",
-    "@basecn": "https://basecn.dev/r/{name}.json"
-  }
+  "registries": {}
 }

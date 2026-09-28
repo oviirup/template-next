@@ -1,12 +1,13 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# dependencies
+node_modules
 
-# repository
+# generated files
 .vercel
 .turbo
 .next
-node_modules
 dist
 build
+out
 
 # debug
 *-debug.log*
@@ -16,6 +17,7 @@ build
 .env*
 !.env.example
 
-# typescript
+# miscellaneous
 *.tsbuildinfo
+cn.tables.js
 next-env.d.ts

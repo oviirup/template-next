@@ -7,10 +7,9 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**/*", "!*.min.*", "!public/**/*", "!**/*.lock"]
+    "includes": ["**/*", "!*.min.*", "!public/**/*"]
   },
   "formatter": {
-    "enabled": true,
     "useEditorconfig": true,
     "bracketSameLine": true,
     "indentStyle": "space",
@@ -18,10 +17,28 @@
     "lineWidth": 100
   },
   "linter": {
-    "enabled": true,
     "rules": {
       "a11y": {
         "recommended": false
+      },
+      "correctness": {
+        "useExhaustiveDependencies": {
+          "level": "warn",
+          "options": {
+            "hooks": [
+              { "name": "useSyncRef", "stableResult": true },
+              { "name": "useLazyRef", "stableResult": true }
+            ],
+            "reportMissingDependenciesArray": true
+          }
+        }
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "info",
+          "options": { "functions": ["cva", "tv", "cn", "clsx"] }
+        }
       },
       "style": {
         "noNonNullAssertion": "off",
@@ -29,18 +46,10 @@
       },
       "suspicious": {
         "noArrayIndexKey": "off",
-        "noConfusingVoidType": "off",
         "noExplicitAny": "off",
         "noDuplicateCustomProperties": "off",
         "noDuplicateProperties": "off",
         "noUnknownAtRules": "off"
-      },
-      "nursery": {
-        "useSortedClasses": {
-          "fix": "safe",
-          "level": "warn",
-          "options": { "functions": ["cva", "tv", "cn", "cx"] }
-        }
       }
     },
     "domains": {
@@ -52,16 +61,13 @@
     "parser": {
       "tailwindDirectives": true,
       "cssModules": true
-    },
-    "formatter": {
-      "enabled": true,
-      "lineWidth": 160
     }
   },
   "assist": {
     "actions": {
       "source": {
         "organizeImports": "on",
+        "useSortedPackageJson": "on",
         "noDuplicateClasses": "on"
       }
     }

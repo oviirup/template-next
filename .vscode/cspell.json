@@ -1,0 +1,7 @@
+{
+  // biome-ignore format: keep the entries as is, do not sort them
+  "words": [
+    "oviirup", "baseui", "rehype", "remark", "shiki", "lucide", "twextras",
+    "tabler", "oklch", "dashoffset", "dasharray", "linecap", "linejoin",
+  ]
+}
