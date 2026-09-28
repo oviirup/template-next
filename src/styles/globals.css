@@ -1,5 +1,7 @@
 @import "tailwindcss";
-@import "tailwind-extras";
+@import "twextras";
+
+@import "./utilities.css";
 
 @custom-variant dark (&:where([data-theme="dark"] *));
 @custom-variant icon (& svg);
@@ -94,18 +96,15 @@
 
 @layer base {
   html {
+    color-scheme: dark;
     interpolate-size: allow-keywords;
     background-color: var(--background);
-    color: var(--foreground);
-    scroll-behavior: smooth;
-    scrollbar-gutter: stable;
-    scrollbar-width: thin;
-    overflow-x: hidden;
     accent-color: var(--primary);
-  }
-  body {
-    overflow-x: clip;
-    min-height: 100svh;
+    color: var(--foreground);
+    font-size: 14px;
+    @variant sm {
+      font-size: 16px;
+    }
   }
   *,
   *::before,
@@ -121,9 +120,4 @@
     outline-color: transparent;
     outline-width: 0;
   }
-}
-
-@utility highlight {
-  outline: 2px solid --alpha(var(--ring) / 0.5);
-  outline-offset: 1px;
 }

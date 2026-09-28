@@ -2,7 +2,7 @@
 
 import { Route } from "next";
 import Anchor, { LinkProps } from "next/link";
-import { composeEventHandlers } from "@/lib/utils";
+import { useComposeEvent } from "@/hooks/use-compose-event";
 
 const isExternal = (href: string) => /^https?:\/\//.test(href);
 
@@ -11,16 +11,16 @@ export function Link({ external, href, onNavigate: onNavigateProp, ...props }: L
   const _hash = _href.split("#")[1];
   const _external = isExternal(_href) || external;
 
-  const onNavigate = () => {
+  const onNavigate = useComposeEvent(onNavigateProp, () => {
     if (!_hash) return;
     document.getElementById(_hash)?.scrollIntoView();
-  };
+  });
 
   return (
     <Anchor
       target={_external ? "_blank" : undefined}
       href={href}
-      onNavigate={composeEventHandlers(onNavigateProp, onNavigate, false)}
+      onNavigate={onNavigate}
       {...props}
     />
   );

@@ -2,9 +2,9 @@
 
 import { Button as BaseButton } from "baseui/button";
 import { Link } from "@/components/ui/link";
-import { cn, tv } from "@/lib/utils";
+import { cn, cva } from "@/lib/utils";
 
-export const buttonVariants = tv({
+export const buttonVariants = cva({
   base: "focus:highlight icon:pointer-events-none inline-flex icon:not-[[class*='size-']]:size-4 icon:shrink-0 shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap font-medium transition-all focus:border-ring/50 disabled:pointer-events-none disabled:opacity-50",
   variants: {
     variant: {
@@ -63,7 +63,7 @@ export function Button({
 export namespace Button {
   export type Props = Omit<BaseButton.Props, "nativeButton"> & {
     nonNative?: boolean;
-  } & tv.Props<typeof buttonVariants>;
+  } & cva.Props<typeof buttonVariants>;
 }
 
 export function ButtonLink({
@@ -79,5 +79,5 @@ export function ButtonLink({
   );
 }
 export namespace ButtonLink {
-  export type Props = Link.Props & tv.Props<typeof buttonVariants>;
+  export type Props = Link.Props & cva.Props<typeof buttonVariants>;
 }

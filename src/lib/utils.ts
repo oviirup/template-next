@@ -1,64 +1,44 @@
-import { isFunction, isObject } from "@oviirup/utils/assertions";
-import { twJoin, twMerge } from "tailwind-merge";
-import { createTV, type VariantProps } from "tailwind-variants/lite";
-import { SITE_URL } from "@/app";
-import { AnyFunction } from "@/types";
+import { isFunction } from "@oviirup/utils/guards";
+import { createCn } from "cn/engine";
+import { cva as cvaBase, VariantProps } from "cva";
+import { SITE } from "@/config/app";
+import { Func } from "@/types";
+import { default as cnTables } from "../../cn.tables";
 
-/** Creates a formatted className from given arguments */
-export function cn(...args: any[]) {
-  return twMerge(twJoin(...args));
+export const cn = createCn(cnTables);
+
+export const cva = cvaBase;
+export namespace cva {
+  export type Props<T extends Func> = VariantProps<T>;
 }
 
-export const tv = createTV();
-export namespace tv {
-  export type Props<T extends AnyFunction> = VariantProps<T>;
-}
-
-/** Returns the canonical url to given path and params */
-export function canonical(input: string, trailingSlash = false) {
-  if (/^https?:\/\//.test(input)) return input;
+/**
+ * Returns the canonical url to given path and params
+ * @param input The input string to convert to a URL
+ * @returns The canonical URL
+ */
+export function canonical(input: string): URL {
+  if (/^https?:\/\//.test(input)) return new URL(input);
   const [path, params] = input.split("?");
-  const url = new URL(SITE_URL);
-  // add pathname and apply trailing slash if needed
-  if (trailingSlash) url.pathname = path.endsWith("/") ? path : `${path}/`;
-  else url.pathname = path.endsWith("/") ? path.slice(0, -1) : path;
+  const url = new URL(SITE.url);
+  url.pathname = path.endsWith("/") ? path.slice(0, -1) : path;
   // add search params if any
   if (params && params.length > 0) url.search = params;
-  return url.toString();
+  return url;
 }
 
-/** Combines multiple React refs into a single ref callback function */
-export function composeRefs<T>(...refs: Array<React.Ref<T> | undefined>): React.RefCallback<T> {
-  return (el) => {
-    const cleanups = refs
-      .map((ref) => {
-        if (isFunction(ref)) return ref(el);
-        if (isObject(ref)) ref.current = el;
-        return null;
-      })
-      .filter(isFunction);
-    // run cleanup functions if any were provided
-    return () => {
-      if (cleanups.length === 0) return;
-      for (const cleanup of cleanups) cleanup();
-    };
-  };
-}
-
-/** Combines multiple event handlers in one */
-export function composeEventHandlers(
-  original: React.EventHandler<any> | undefined,
-  custom: React.EventHandler<any> | undefined,
-  checkIsAllowed = true,
-) {
-  return (event: any) => {
-    original?.(event);
-    const isAllowed = !checkIsAllowed || !event?.defaultPrevented;
-    if (isAllowed) custom?.(event);
-  };
-}
-
-/** Applies a React SetStateAction to a previous state value */
-export function resolveStateAction<T>(action: React.SetStateAction<T>, prev: T) {
-  return isFunction(action) ? action(prev) : action;
+/**
+ * Resolves the state value
+ *
+ * @param state The state value or state action to resolve.
+ * @param prev The previous state value.
+ * @returns The resolved state value.
+ *
+ * @example ```tsx
+ * const [state, setState] = useState(0);
+ * const resolvedState = resolveStateAction(setState, state);
+ * ```
+ */
+export function resolveStateAction<T>(state: React.SetStateAction<T>, prev: T): T {
+  return isFunction(state) ? state(prev) : (state as T);
 }

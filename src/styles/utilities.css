@@ -1,0 +1,19 @@
+/* utilities */
+
+@utility highlight {
+  --tw-highlight: var(--muted);
+  outline: 2px solid --alpha(var(--tw-highlight, var(--muted)) / 75%);
+  outline-offset: 1px;
+}
+
+@utility highlight-* {
+  --tw-highlight: --value(--color-*, [*]);
+}
+
+/* css properties */
+
+@property --tw-highlight {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: white;
+}

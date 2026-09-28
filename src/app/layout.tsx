@@ -1,9 +1,9 @@
 import { Metadata, Viewport } from "next";
-import { SITE, THEME_COLOR } from "@/app";
 import { Providers } from "@/components/layout/providers";
-import { fonts } from "@/lib/fonts";
+import { SITE } from "@/config/app";
 import { canonical, cn } from "@/lib/utils";
-import "./globals.css";
+import { fontClassNames } from "@/styles/fonts";
+import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -31,17 +31,15 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   colorScheme: "light dark",
-  themeColor: [
-    { color: THEME_COLOR.dark, media: "(prefers-color-scheme: dark)" },
-    { color: THEME_COLOR.light, media: "(prefers-color-scheme: light)" },
-  ],
 };
 
 export default function RootLayout({ children }: React.PropsWithChildren) {
-  const fontClassNames = [fonts.sans.variable, fonts.code.variable];
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={cn(fontClassNames, "flex flex-col bg-background px-2")}>
+    <html
+      lang="en"
+      className="scrollbar-thin overflow-x-clip scroll-smooth"
+      suppressHydrationWarning>
+      <body className={cn("overflow-x-clip font-sans", fontClassNames)}>
         <Providers>{children}</Providers>
       </body>
     </html>
